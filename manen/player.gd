@@ -19,6 +19,8 @@ var ignore_targets=[]
 @onready var right_weapon=right_hand.get_child(0)
 @onready var left_weapon=left_hand.get_child(0)
 
+var locked_char=false
+
 func _physics_process(delta: float) -> void:
 	if targeting:
 		if target!=null:
@@ -27,10 +29,10 @@ func _physics_process(delta: float) -> void:
 			
 			var target_pos = target.global_transform.origin
 			target_pos.y = $all_da_shit.global_transform.origin.y
-			$SpringArm3D.look_at(target_pos, Vector3.UP)
 			$all_da_shit.look_at(target_pos, Vector3.UP)
 
 		else:
+			locked_char=true
 			ignore_targets.clear()
 			get_nearest_target()
 	if Input.is_action_pressed("run"):
@@ -54,9 +56,10 @@ func _physics_process(delta: float) -> void:
 	if direction != Vector3.ZERO:
 		velocity.x = direction.x * SPEED*run_speed
 		velocity.z = direction.z * SPEED*run_speed
-		if not target:
-			var look_target = global_transform.origin + Vector3(direction.x, 0, direction.z)
-			$all_da_shit.look_at(look_target, Vector3.UP)
+		if not target :
+			if not locked_char:
+				var look_target = global_transform.origin + Vector3(direction.x, 0, direction.z)
+				$all_da_shit.look_at(look_target, Vector3.UP)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED*run_speed)
 		velocity.z = move_toward(velocity.z, 0, SPEED*run_speed)
@@ -67,16 +70,19 @@ func _input(event: InputEvent) -> void:
 	if target!=null:
 		if event.is_action_pressed("change_target"):
 			
-			print(ignore_targets)
+			
 			get_nearest_target()
 	
 	
 	if event.is_action_pressed("toggle_lock"):
+		locked_char=false
 		ignore_targets.clear()
-		targeting=false
-		if target:
+		
+		if targeting:
 			target=null
+			targeting=false
 			return
+		targeting=false
 		get_nearest_target()
 	
 	
@@ -136,3 +142,4 @@ func get_nearest_target():
 			ignore_targets.clear()
 			ignore_targets.append(target)
 			get_nearest_target()
+	print(ignore_targets)
