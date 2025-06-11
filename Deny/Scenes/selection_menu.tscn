@@ -1,0 +1,160 @@
+[gd_scene load_steps=9 format=3 uid="uid://cf5sgk3iwyets"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oud2n"]
+bg_color = Color(0.103744, 0.103744, 0.103744, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ac17m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_howpj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pegcd"]
+bg_color = Color(0.165656, 0.165656, 0.165656, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3lqi"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.203922, 0.203922, 0.203922, 1)
+skew = Vector2(0.38, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tc3xh"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.345098, 0.345098, 0.345098, 0.247059)
+skew = Vector2(0.38, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1f7sb"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.205117, 0.205117, 0.205117, 1)
+skew = Vector2(0.38, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fk3c3"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="Selection Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 118.0
+offset_right = 708.0
+offset_bottom = 525.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_oud2n")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -200.0
+offset_right = 124.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 8
+theme_override_styles/tab_focus = SubResource("StyleBoxFlat_ac17m")
+theme_override_styles/tab_disabled = SubResource("StyleBoxFlat_howpj")
+theme_override_styles/panel = SubResource("StyleBoxFlat_pegcd")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_t3lqi")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_tc3xh")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_1f7sb")
+tab_alignment = 1
+current_tab = 1
+
+[node name="Equip" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Character" type="Control" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Skills" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Panel3" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 190.0
+offset_top = -185.0
+offset_right = 419.0
+offset_bottom = 201.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oud2n")
+
+[node name="Panel" type="Panel" parent="Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.5
+offset_top = -185.0
+offset_right = 106.5
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fk3c3")
+
+[node name="OptionButton" type="OptionButton" parent="Panel3/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.5
+offset_top = 5.0
+offset_right = 55.5
+offset_bottom = 30.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 12
+alignment = 1
+selected = 0
+item_count = 5
+popup/item_0/text = "All"
+popup/item_1/text = "Weapons"
+popup/item_1/id = 1
+popup/item_2/text = "Armor"
+popup/item_2/id = 2
+popup/item_3/text = "Items"
+popup/item_3/id = 4
+popup/item_4/text = "Consumables"
+popup/item_4/id = 3

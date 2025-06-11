@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxde43rtuflnb"]
+
+[ext_resource type="Shader" path="res://Deny/Shaders & other/hud.gdshader" id="1_8py0t"]
+[ext_resource type="Texture2D" uid="uid://bfri4gtch0mbu" path="res://icon.svg" id="2_iuo5j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uuc5f"]
+bg_color = Color(0.262932, 0.262932, 0.262932, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vtec"]
+bg_color = Color(0.140447, 0.140447, 0.140447, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fyqrg"]
+shader = ExtResource("1_8py0t")
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Low Bar" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel2" type="Panel" parent="Low Bar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 353.0
+offset_top = 545.0
+offset_right = 759.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uuc5f")
+
+[node name="Panel" type="Panel" parent="Low Bar"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 360.0
+offset_top = 552.0
+offset_right = 752.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5vtec")
+
+[node name="Skills Act" type="Control" parent="Low Bar"]
+anchors_preset = 0
+offset_left = 373.0
+offset_top = 585.0
+offset_right = 779.0
+offset_bottom = 648.0
+
+[node name="Button" type="Button" parent="Low Bar/Skills Act"]
+material = SubResource("ShaderMaterial_fyqrg")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.0
+offset_top = -16.5
+offset_right = -43.0
+offset_bottom = 119.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+theme_override_icons/icon = ExtResource("2_iuo5j")
+icon_alignment = 1
