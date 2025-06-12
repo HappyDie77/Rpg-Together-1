@@ -10,5 +10,5 @@ var hp=1
 
 func take_damage():
 	hp-=1
-	if hp<0:
+	if hp<1:
 		queue_free()
