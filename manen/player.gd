@@ -5,6 +5,10 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 var run_speed=1
 
+
+var direction :=Vector3.ZERO
+
+
 var target : Node3D
 var targeting=false
 
@@ -50,7 +54,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir := Input.get_vector("left", "right", "up", "down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	direction = direction.rotated(Vector3.UP, %Camera3D.global_rotation.y)
 
 	if direction != Vector3.ZERO:
@@ -91,9 +95,13 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			if not right_weapon==null:
-				if Input.is_action_pressed("up") and right_weapon.has_method("up_attack"):
-					print("up_attack")
-					right_weapon.up_attack()
+				if direction != Vector3.ZERO:
+					var forward = -$all_da_shit.global_transform.basis.z.normalized()
+					var move_dir = direction.normalized()
+
+					if move_dir.dot(forward) > 0.7 and right_weapon.has_method("up_attack"):
+						print("up_attack")
+						right_weapon.up_attack()
 				elif right_weapon.has_method("idle_attack"):
 					print("attac")
 					right_weapon.idle_attack()
