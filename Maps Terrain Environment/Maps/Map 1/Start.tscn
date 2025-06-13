@@ -1,3 +1,64 @@
-[gd_scene format=3 uid="uid://dxgcyxtw1sb8a"]
+[gd_scene load_steps=9 format=3 uid="uid://dxgcyxtw1sb8a"]
 
-[node name="Node3D" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://b32qgv57vevbg" path="res://Assets/Map 1.glb" id="1_us540"]
+[ext_resource type="PackedScene" uid="uid://bqsoinx080n0v" path="res://Maps Terrain Environment/Environment/Environment 1.tscn" id="2_8ckqy"]
+[ext_resource type="PackedScene" uid="uid://b0bu3en0pje13" path="res://manen/player.tscn" id="3_u0545"]
+[ext_resource type="Script" path="res://manen/enemy.gd" id="4_nk21u"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2k1m3"]
+size = Vector2(200, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etfvw"]
+albedo_color = Color(0, 0.701961, 0.843137, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p6b3p"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_46wb8"]
+
+[node name="World" type="Node3D"]
+
+[node name="Map 1" parent="." instance=ExtResource("1_us540")]
+transform = Transform3D(100, 0, 0, 0, 67.54, 0, 0, 0, 100, 0, 0.252525, 0)
+
+[node name="Environment1" parent="." instance=ExtResource("2_8ckqy")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 67.54, 0, 0, 0, 100, 0, 1.30334, 0)
+mesh = SubResource("PlaneMesh_2k1m3")
+surface_material_override/0 = SubResource("StandardMaterial3D_etfvw")
+
+[node name="player" parent="." instance=ExtResource("3_u0545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.1324, 0)
+
+[node name="enemy" type="CharacterBody3D" parent="." groups=["enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6672, 26.6491, -7.77272)
+script = ExtResource("4_nk21u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy"]
+shape = SubResource("CapsuleShape3D_p6b3p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="enemy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0101805, 0.0146389, -0.00214386)
+mesh = SubResource("CapsuleMesh_46wb8")
+
+[node name="enemy2" type="CharacterBody3D" parent="." groups=["enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26.6491, -10.4903)
+script = ExtResource("4_nk21u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy2"]
+shape = SubResource("CapsuleShape3D_p6b3p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="enemy2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0101805, 0.0146389, -0.00214386)
+mesh = SubResource("CapsuleMesh_46wb8")
+
+[node name="enemy3" type="CharacterBody3D" parent="." groups=["enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99572, 27.4681, -7.99738)
+script = ExtResource("4_nk21u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy3"]
+shape = SubResource("CapsuleShape3D_p6b3p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="enemy3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0101805, 0.0146389, -0.00214386)
+mesh = SubResource("CapsuleMesh_46wb8")
