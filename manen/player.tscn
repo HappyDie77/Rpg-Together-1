@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0bu3en0pje13"]
+[gd_scene load_steps=15 format=3 uid="uid://b0bu3en0pje13"]
 
 [ext_resource type="Script" path="res://manen/player.gd" id="1_oqntt"]
 [ext_resource type="Texture2D" uid="uid://bfri4gtch0mbu" path="res://icon.svg" id="2_20y52"]
+[ext_resource type="PackedScene" uid="uid://bxde43rtuflnb" path="res://Deny/Scenes/hud.tscn" id="2_dd0we"]
 [ext_resource type="Script" path="res://manen/spring_arm_3d.gd" id="3_r8bqo"]
 [ext_resource type="Script" path="res://manen/test_weapon.gd" id="4_mitkv"]
+[ext_resource type="Script" path="res://Deny/Scripts/skills_player.gd" id="6_0bucf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vktso"]
 
@@ -54,8 +56,10 @@ _data = {
 size = Vector3(1, 3.7887, 1)
 
 [node name="player" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.97073, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.980912, 0)
 script = ExtResource("1_oqntt")
+
+[node name="Hud" parent="." instance=ExtResource("2_dd0we")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_vktso")
@@ -100,5 +104,8 @@ shape = SubResource("BoxShape3D_24qje")
 [node name="left_hand" type="Node3D" parent="all_da_shit"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.445518, 0, -0.389377)
+
+[node name="Skills" type="Node3D" parent="all_da_shit"]
+script = ExtResource("6_0bucf")
 
 [connection signal="body_entered" from="all_da_shit/right_hand/test_weapon/Area3D" to="all_da_shit/right_hand/test_weapon" method="_on_area_3d_body_entered"]
