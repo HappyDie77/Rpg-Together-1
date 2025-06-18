@@ -86,3 +86,41 @@ scale = Vector2(0.3, 0.3)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
 theme_override_icons/icon = ExtResource("2_iuo5j")
 icon_alignment = 1
+
+[node name="Skill 2" type="Button" parent="Low Bar/Skills Act"]
+material = SubResource("ShaderMaterial_fyqrg")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -16.5
+offset_right = 5.0
+offset_bottom = 119.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_icons/icon = ExtResource("2_iuo5j")
+icon_alignment = 1
+
+[node name="Skill 3" type="Button" parent="Low Bar/Skills Act"]
+material = SubResource("ShaderMaterial_fyqrg")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -16.5
+offset_right = 53.0
+offset_bottom = 119.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_icons/icon = ExtResource("2_iuo5j")
+icon_alignment = 1
