@@ -1,4 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cf5sgk3iwyets"]
+[gd_scene load_steps=14 format=3 uid="uid://cf5sgk3iwyets"]
+
+[ext_resource type="Texture2D" uid="uid://dr00qmqs56ra6" path="res://Assets/Adobe Express - file (1).png" id="1_qltwx"]
+[ext_resource type="Texture2D" uid="uid://brs1kanvrbwlx" path="res://Assets/Front Pic BG REMOVE.png" id="2_bj1jm"]
+[ext_resource type="Texture2D" uid="uid://bfri4gtch0mbu" path="res://icon.svg" id="3_at1tu"]
+[ext_resource type="Script" path="res://Deny/Scenes/Inv_slots.gd" id="4_6cv3p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oud2n"]
 bg_color = Color(0.103744, 0.103744, 0.103744, 1)
@@ -52,6 +57,19 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6x7y"]
+bg_color = Color(0.111197, 0.111197, 0.111197, 0.560784)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.12089, 0.342575, 0.530272, 1)
+border_blend = true
+corner_radius_top_left = 19
+corner_radius_top_right = 19
+corner_radius_bottom_right = 19
+corner_radius_bottom_left = 19
+
 [node name="Selection Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -66,6 +84,7 @@ offset_left = 445.0
 offset_top = 118.0
 offset_right = 708.0
 offset_bottom = 525.0
+scale = Vector2(0.999157, 1)
 theme_override_styles/panel = SubResource("StyleBoxFlat_oud2n")
 
 [node name="TabContainer" type="TabContainer" parent="."]
@@ -89,23 +108,873 @@ theme_override_styles/tab_selected = SubResource("StyleBoxFlat_t3lqi")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_tc3xh")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_1f7sb")
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 
 [node name="Equip" type="Control" parent="TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
+[node name="Panel" type="Panel" parent="TabContainer/Equip"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -123.5
+offset_top = -40.0
+offset_right = 123.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel3" type="Panel" parent="TabContainer/Equip"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 189.0
+offset_top = -197.0
+offset_right = 418.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oud2n")
+
+[node name="Panel" type="Panel" parent="TabContainer/Equip/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.5
+offset_top = -185.0
+offset_right = 106.5
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fk3c3")
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Equip/Panel3/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.5
+offset_top = 5.0
+offset_right = 55.5
+offset_bottom = 30.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 12
+alignment = 1
+selected = 0
+item_count = 5
+popup/item_0/text = "All"
+popup/item_1/text = "Weapons"
+popup/item_1/id = 1
+popup/item_2/text = "Armor"
+popup/item_2/id = 2
+popup/item_3/text = "Items"
+popup/item_3/id = 4
+popup/item_4/text = "Consumables"
+popup/item_4/id = 3
+
 [node name="Character" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
+[node name="FrontPicBgRemove" type="Sprite2D" parent="TabContainer/Character"]
+position = Vector2(124, 172)
+scale = Vector2(0.258065, 0.258065)
+texture = ExtResource("2_bj1jm")
+
+[node name="Panel" type="Panel" parent="TabContainer/Character"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -123.5
+offset_top = -40.0
+offset_right = 123.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel3" type="Panel" parent="TabContainer/Character"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 189.0
+offset_top = -197.0
+offset_right = 418.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oud2n")
+
+[node name="Panel" type="Panel" parent="TabContainer/Character/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.5
+offset_top = -185.0
+offset_right = 106.5
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fk3c3")
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Character/Panel3/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.5
+offset_top = 5.0
+offset_right = 55.5
+offset_bottom = 30.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 12
+alignment = 1
+selected = 0
+item_count = 5
+popup/item_0/text = "All"
+popup/item_1/text = "Weapons"
+popup/item_1/id = 1
+popup/item_2/text = "Armor"
+popup/item_2/id = 2
+popup/item_3/text = "Items"
+popup/item_3/id = 4
+popup/item_4/text = "Consumables"
+popup/item_4/id = 3
+
 [node name="Skills" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
+[node name="AdobeExpress-File(1)" type="Sprite2D" parent="TabContainer/Skills"]
+position = Vector2(126, 152)
+scale = Vector2(0.325893, 0.325893)
+texture = ExtResource("1_qltwx")
+
+[node name="Skill Slot 1" type="Panel" parent="TabContainer/Skills"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 47.0
+offset_right = 142.0
+offset_bottom = 87.0
+scale = Vector2(1.2, 1.2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_c6x7y")
+
+[node name="Skill Slot 2" type="Panel" parent="TabContainer/Skills"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 117.0
+offset_right = 142.0
+offset_bottom = 157.0
+scale = Vector2(1.2, 1.2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_c6x7y")
+
+[node name="Skill Slot 3" type="Panel" parent="TabContainer/Skills"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 187.0
+offset_right = 142.0
+offset_bottom = 227.0
+scale = Vector2(1.2, 1.2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_c6x7y")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -123.5
+offset_top = -40.0
+offset_right = 123.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel3" type="Panel" parent="TabContainer/Skills"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 189.0
+offset_top = -197.0
+offset_right = 418.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oud2n")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.5
+offset_top = -185.0
+offset_right = 106.5
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fk3c3")
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Skills/Panel3/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.5
+offset_top = 5.0
+offset_right = 55.5
+offset_bottom = 30.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 12
+alignment = 1
+selected = 0
+item_count = 5
+popup/item_0/text = "All"
+popup/item_1/text = "Weapons"
+popup/item_1/id = 1
+popup/item_2/text = "Armor"
+popup/item_2/id = 2
+popup/item_3/text = "Items"
+popup/item_3/id = 4
+popup/item_4/text = "Consumables"
+popup/item_4/id = 3
+
+[node name="Inv Slots" type="Control" parent="TabContainer/Skills/Panel3/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Row 1" type="Control" parent="TabContainer/Skills/Panel3/Panel/Inv Slots"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slot 1" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 1"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 56.0
+offset_bottom = 80.0
+texture = ExtResource("3_at1tu")
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 1/Slot 1"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 2" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 1"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 42.5
+offset_top = 40.0
+offset_right = 82.5
+offset_bottom = 80.0
+grow_horizontal = 2
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 1/Slot 2"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 3" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 1"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 89.5
+offset_top = 40.0
+offset_right = 129.5
+offset_bottom = 80.0
+grow_horizontal = 2
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 1/Slot 3"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 4" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 1"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 117.0
+offset_top = 40.0
+offset_right = 157.0
+offset_bottom = 80.0
+grow_horizontal = 0
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 1/Slot 4"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Row 2" type="Control" parent="TabContainer/Skills/Panel3/Panel/Inv Slots"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slot 5" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 2"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 16.0
+offset_top = 88.0
+offset_right = 56.0
+offset_bottom = 128.0
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 2/Slot 5"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 6" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 42.5
+offset_top = 88.0
+offset_right = 82.5
+offset_bottom = 128.0
+grow_horizontal = 2
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 2/Slot 6"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 7" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 89.5
+offset_top = 88.0
+offset_right = 129.5
+offset_bottom = 128.0
+grow_horizontal = 2
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 2/Slot 7"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 8" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 117.0
+offset_top = 88.0
+offset_right = 157.0
+offset_bottom = 128.0
+grow_horizontal = 0
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 2/Slot 8"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Row 3" type="Control" parent="TabContainer/Skills/Panel3/Panel/Inv Slots"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slot 9" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 3"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 16.0
+offset_top = 136.0
+offset_right = 56.0
+offset_bottom = 176.0
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 3/Slot 9"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 10" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 3"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 42.5
+offset_top = 136.0
+offset_right = 82.5
+offset_bottom = 176.0
+grow_horizontal = 2
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 3/Slot 10"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 11" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 3"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 89.5
+offset_top = 136.0
+offset_right = 129.5
+offset_bottom = 176.0
+grow_horizontal = 2
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 3/Slot 11"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 12" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 3"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 117.0
+offset_top = 136.0
+offset_right = 157.0
+offset_bottom = 176.0
+grow_horizontal = 0
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 3/Slot 12"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Row 4" type="Control" parent="TabContainer/Skills/Panel3/Panel/Inv Slots"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slot 13" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 4"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 16.0
+offset_top = 184.0
+offset_right = 56.0
+offset_bottom = 224.0
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 4/Slot 13"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 14" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 4"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 42.5
+offset_top = 184.0
+offset_right = 82.5
+offset_bottom = 224.0
+grow_horizontal = 2
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 4/Slot 14"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 15" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 4"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 89.5
+offset_top = 184.0
+offset_right = 129.5
+offset_bottom = 224.0
+grow_horizontal = 2
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 4/Slot 15"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 16" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 4"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 117.0
+offset_top = 184.0
+offset_right = 157.0
+offset_bottom = 224.0
+grow_horizontal = 0
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 4/Slot 16"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Row 5" type="Control" parent="TabContainer/Skills/Panel3/Panel/Inv Slots"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slot 17" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 5"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 16.0
+offset_top = 232.0
+offset_right = 56.0
+offset_bottom = 272.0
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 5/Slot 17"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 18" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 5"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 42.5
+offset_top = 232.0
+offset_right = 82.5
+offset_bottom = 272.0
+grow_horizontal = 2
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 5/Slot 18"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 19" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 5"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 89.5
+offset_top = 232.0
+offset_right = 129.5
+offset_bottom = 272.0
+grow_horizontal = 2
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 5/Slot 19"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 20" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 5"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 117.0
+offset_top = 232.0
+offset_right = 157.0
+offset_bottom = 272.0
+grow_horizontal = 0
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 5/Slot 20"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Row 6" type="Control" parent="TabContainer/Skills/Panel3/Panel/Inv Slots"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slot 21" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 6"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 16.0
+offset_top = 280.0
+offset_right = 56.0
+offset_bottom = 320.0
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 6/Slot 21"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 22" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 6"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 42.5
+offset_top = 280.0
+offset_right = 82.5
+offset_bottom = 320.0
+grow_horizontal = 2
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 6/Slot 22"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 23" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 6"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 89.5
+offset_top = 280.0
+offset_right = 129.5
+offset_bottom = 320.0
+grow_horizontal = 2
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 6/Slot 23"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 24" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 6"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 117.0
+offset_top = 280.0
+offset_right = 157.0
+offset_bottom = 320.0
+grow_horizontal = 0
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 6/Slot 24"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Row 7" type="Control" parent="TabContainer/Skills/Panel3/Panel/Inv Slots"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slot 25" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 7"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 16.0
+offset_top = 328.0
+offset_right = 56.0
+offset_bottom = 368.0
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 7/Slot 25"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 26" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 7"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 42.5
+offset_top = 328.0
+offset_right = 82.5
+offset_bottom = 368.0
+grow_horizontal = 2
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 7/Slot 26"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 27" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 7"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 89.5
+offset_top = 328.0
+offset_right = 129.5
+offset_bottom = 368.0
+grow_horizontal = 2
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 7/Slot 27"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slot 28" type="TextureRect" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 7"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 117.0
+offset_top = 328.0
+offset_right = 157.0
+offset_bottom = 368.0
+grow_horizontal = 0
+expand_mode = 1
+script = ExtResource("4_6cv3p")
+
+[node name="Panel" type="Panel" parent="TabContainer/Skills/Panel3/Panel/Inv Slots/Row 7/Slot 28"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Row 8" type="Control" parent="TabContainer/Skills/Panel3/Panel/Inv Slots"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Panel3" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

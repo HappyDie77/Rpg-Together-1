@@ -1,16 +1,24 @@
 extends Control
 
 @onready var skill_1: Button = $"Skill 1"
+@onready var skill_2: Button = $"Skill 2"
+@onready var skill_3: Button = $"Skill 3"
 
-# Called when the node enters the scene tree for the first time.
+var skill_slots: Array = []
+
 func _ready() -> void:
-	pass # Replace with function body.
+	skill_slots.resize(3) # nr of skill slots change later
+	for i in range(skill_slots.size()):
+		skill_slots[i] = null
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func equip_skill_to_slot():
 	pass
 
-func use_skill_1():
+func _process(delta: float) -> void:
+	#MAKE MODULAR TOO
 	if Global.skill_1:
-		skill_1.theme_override_colors["icon_normal_color"] = Color("#393939")
+		skill_1.add_theme_color_override("icon_normal_color", Color("#393939"))
+		print("color dark")
+
+func use_skill_1():
+	pass
